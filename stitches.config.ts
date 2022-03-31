@@ -29,10 +29,17 @@ export const {
     },
   },
   media: {
-    bp1: '(min-width: 480px)',
+    bp1: '(max-width: 600px)',
+    bp2: '(max-width: 768px)',
+    bp3: '(max-width: 1024px)',
   },
   utils: {
     marginX: (value: string) => ({ marginLeft: value, marginRight: value }),
+    openDrawer: (value: string) =>
+      value === 'closed'
+        ? { transform: 'translateX(0)' }
+        : { transform: 'translateX(100%)' },
+    bg: (value: string) => ({ background: value }),
   },
 });
 
@@ -51,6 +58,7 @@ export const globalStyles = globalCss({
     width: '100%',
     height: '100%',
     fontSize: '100%',
+    overflowYw: 'scroll',
   },
 
   body: {
@@ -65,7 +73,6 @@ export const globalStyles = globalCss({
 
   section: {
     padding: '20px',
-    maxWidth: '1200px',
     width: '100%',
   },
 });

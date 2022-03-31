@@ -1,6 +1,10 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import Header from '../components/header';
+import Cardapio from '../components/Cardapio';
+import Intro from '../components/Intro';
+import Navbar from '../components/NavBar';
+import Products from '../components/Products';
+import SectionMobile from '../components/SectionMobile';
 
 const Home: NextPage = () => {
   return (
@@ -8,8 +12,11 @@ const Home: NextPage = () => {
       <Head>
         <title>Main Foods</title>
       </Head>
-      <Header />
-      <h1>Main Foods 2</h1>
+      <Navbar />
+      <Intro />
+      <SectionMobile />
+      <Products />
+      <Cardapio />
     </>
   );
 };
