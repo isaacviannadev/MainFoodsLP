@@ -5,6 +5,8 @@ import Intro from '../components/Intro';
 import Navbar from '../components/NavBar';
 import Products from '../components/Products';
 import SectionMobile from '../components/SectionMobile';
+import VideoSection from '../components/VideoSection';
+import CardsServices from '../components/CardsServices';
 
 const Home: NextPage = () => {
   return (
@@ -17,6 +19,8 @@ const Home: NextPage = () => {
       <SectionMobile />
       <Products />
       <Cardapio />
+      <VideoSection />
+      <CardsServices />
     </>
   );
 };

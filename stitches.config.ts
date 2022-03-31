@@ -15,10 +15,16 @@ export const {
       background: 'white',
 
       primary: 'hsl(332,42%,35%)',
+      primaryLight: 'hsl(332,42%,42%)',
+      primaryDark: 'hsl(332,42%,28%)',
       secondary: 'hsl(160,21%,46%)',
+      secondaryLight: 'hsl(160,21%,54%)',
+      secondaryDark: 'hsl(160,21%,38%)',
 
       grayMain: 'hsl(225,2%,45%)',
       graySecondary: 'hsl(0,0%,77%)',
+
+      yellow: 'hsl(36,100%,50%)',
 
       gray100: 'hsl(206,22%,99%)',
       gray200: 'hsl(206,12%,97%)',
@@ -74,5 +80,9 @@ export const globalStyles = globalCss({
   section: {
     padding: '20px',
     width: '100%',
+  },
+
+  a: {
+    textDecoration: 'none',
   },
 });
