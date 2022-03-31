@@ -48,11 +48,8 @@ const SectionMenu = styled('section', {
     },
 
     '@bp1': {
+      width: '100%',
       paddingLeft: '20px',
-
-      '& img.prato': {
-        display: 'none',
-      },
     },
 
     '& img.prato': {
@@ -67,6 +64,14 @@ const SectionMenu = styled('section', {
         left: '-100px',
         width: 'auto',
         height: '300px',
+      },
+
+      '@bp1': {
+        top: '-130px',
+        left: 'calc(50% - 75px)',
+
+        width: '150px',
+        height: '150px',
       },
     },
     '& .content': {
