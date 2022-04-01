@@ -6,9 +6,13 @@ const Ul = styled('ul', {
   flexFlow: 'row nowrap',
 
   '&  li': {
+    color: '$primary',
+
     padding: '18px 10px',
     cursor: 'pointer',
     transition: 'all 0.2s ease',
+    fontWeight: '500',
+
     '&:hover': {
       fontWeight: 'bold',
     },
@@ -53,9 +57,20 @@ type RightNavProps = {
 const RightNav: React.FC<RightNavProps> = ({ open }) => {
   return (
     <Ul className={open}>
-      <li>Home</li>
-      <li>About Us</li>
-      <li>Contact Us</li>
+      <a href='#products'>
+        <li>Nossos Produtos</li>
+      </a>
+      <a href='#cardapio'>
+        <li>Cardápio</li>
+      </a>
+
+      <a href='#services'>
+        <li>Nosso Diferencial</li>
+      </a>
+
+      <a href='#contato'>
+        <li>Cadastre-se</li>
+      </a>
     </Ul>
   );
 };

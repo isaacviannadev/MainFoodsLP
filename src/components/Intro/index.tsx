@@ -78,7 +78,7 @@ const CardIntro = styled('div', {
 
 const Intro = () => {
   return (
-    <Section>
+    <Section id='intro'>
       <div className='container'>
         <CardIntro>
           <p className='welcome'>Bem-vindo(a) ao Main Foods Market</p>

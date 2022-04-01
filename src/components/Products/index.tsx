@@ -124,7 +124,7 @@ const SectionProducts = styled('section', {
 
   '& .productsContainer': {
     display: 'flex',
-    width: '800px',
+    width: '1000px',
     gap: '30px',
     overflowY: 'auto',
     position: 'absolute',
@@ -202,7 +202,7 @@ const Products = () => {
 
   return (
     <>
-      <SectionProducts>
+      <SectionProducts id='products'>
         <div className='productsDescription'>
           <>
             <h1>{itens[card].name}</h1>
@@ -221,6 +221,7 @@ const Products = () => {
               ></div>
             );
           })}
+          <div className='productItem'></div>
         </div>
 
         <div className='productNav'>

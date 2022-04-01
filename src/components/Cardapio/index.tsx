@@ -117,7 +117,7 @@ const Button = styled('a', {
 
 const Cardapio = () => {
   return (
-    <SectionMenu>
+    <SectionMenu id='cardapio'>
       <img
         className='imagem'
         src='/images/lateralExecutivo.svg'

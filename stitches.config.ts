@@ -65,6 +65,7 @@ export const globalStyles = globalCss({
     height: '100%',
     fontSize: '100%',
     overflowYw: 'scroll',
+    scrollBehavior: 'smooth',
   },
 
   body: {

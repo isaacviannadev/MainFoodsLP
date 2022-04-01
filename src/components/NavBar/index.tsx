@@ -61,7 +61,9 @@ const Navbar = () => {
       }
     >
       <Nav>
-        <Image src={Logo} width='140px' height='60px' alt='Logo Main Foods' />
+        <a href='#intro'>
+          <Image src={Logo} width='140px' height='60px' alt='Logo Main Foods' />
+        </a>
         <Burger />
       </Nav>
     </HeaderContainer>

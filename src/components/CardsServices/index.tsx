@@ -62,7 +62,7 @@ const SectionServices = styled('section', {
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  padding: '20px 0',
+  padding: '40px 0',
   flex: 'none',
   overflow: 'hidden',
   position: 'relative',
