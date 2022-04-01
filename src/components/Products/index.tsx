@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useEffect, useRef, useState } from 'react';
 import { styled } from '../../../stitches.config';
 import Image from 'next/image';
@@ -224,12 +225,7 @@ const Products = () => {
                 className='productItem'
                 style={{ borderRadius: '8px' }}
               >
-                <Image
-                  src={item.bgImage}
-                  alt={item.name}
-                  height='260px'
-                  width='400px'
-                />
+                <img src={item.bgImage} alt={item.name} />
               </div>
             );
           })}
