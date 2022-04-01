@@ -77,8 +77,6 @@ const SectionServices = styled('section', {
     scrollBehavior: 'smooth',
 
     '&::-webkit-scrollbar': {
-      // display: 'none',
-
       width: '10px',
       height: '10px',
     },
