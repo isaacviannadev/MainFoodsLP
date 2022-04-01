@@ -303,6 +303,7 @@ const Form = () => {
                     setEmail(e.target.value);
                   }}
                   placeholder='Digite seu e-mail'
+                  inputMode='email'
                 />
                 {errors.email && (
                   <span className='error'>E-mail é obrigatório</span>
@@ -322,6 +323,7 @@ const Form = () => {
                   onKeyPress={onlyNumber}
                   maxLength={15}
                   placeholder='Digite seu telefone'
+                  inputMode='numeric'
                 />
                 {errors.telefone && (
                   <span className='error'>Telefone inválido</span>

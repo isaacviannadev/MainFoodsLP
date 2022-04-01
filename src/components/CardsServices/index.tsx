@@ -62,67 +62,11 @@ const SectionServices = styled('section', {
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  padding: '40px 0',
+  padding: '20px 0 0',
   flex: 'none',
   overflow: 'hidden',
   position: 'relative',
   backgroundColor: '$gray200',
-
-  '& .scrollLeft': {
-    display: 'none',
-    position: 'absolute',
-    top: '50%',
-    left: '5px',
-    transform: 'translateY(-50%)',
-    cursor: 'pointer',
-    zIndex: '1',
-    width: '40px',
-    height: '40px',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '$primary',
-    borderRadius: '50%',
-    color: '#fff',
-  },
-  '& .scrollRight': {
-    display: 'none',
-    position: 'absolute',
-    top: '50%',
-    right: '5px',
-    transform: 'translateY(-50%)',
-    cursor: 'pointer',
-    zIndex: '1',
-    width: '40px',
-    height: '40px',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '$primary',
-    borderRadius: '50%',
-    color: '#fff',
-  },
-
-  '@bp2': {
-    '& .scrollLeft': {
-      display: 'flex',
-
-      '&:hover': {
-        boxShadow: '0 0 4px 3px rgba(127, 52, 87, 0.4)',
-        backgroundColor: '$primaryLight',
-      },
-    },
-    '& .scrollRight': {
-      display: 'flex',
-      '&:hover': {
-        boxShadow: '0 0 4px 3px rgba(127, 52, 87, 0.4)',
-        backgroundColor: '$primaryLight',
-      },
-    },
-  },
-
-  '&:hover': {
-    '& .scrollLeft': {},
-    '& .scrollRight': {},
-  },
 
   '& .cardsWrapper': {
     display: 'flex',
@@ -133,7 +77,19 @@ const SectionServices = styled('section', {
     scrollBehavior: 'smooth',
 
     '&::-webkit-scrollbar': {
-      display: 'none',
+      // display: 'none',
+
+      width: '10px',
+      height: '10px',
+    },
+
+    '&::-webkit-scrollbar-thumb': {
+      borderRadius: '10px',
+      background: '$primaryLight',
+
+      '&:hover': {
+        background: '$primary',
+      },
     },
 
     '@bp2': {
@@ -152,7 +108,7 @@ const CardService = styled('div', {
   width: '300px',
   height: '360px',
   flex: 'none',
-
+  marginBottom: '20px',
   '&:not(:first-child)': {
     borderLeft: '3px solid $primary',
   },
@@ -255,44 +211,9 @@ const Services = () => {
     }
   };
 
-
   return (
     <>
       <SectionServices id='services'>
-        <div
-          className='scrollLeft'
-          onMouseOver={scrollRight}
-          onMouseOut={stopScroll}
-        >
-          <svg
-            stroke='currentColor'
-            fill='currentColor'
-            strokeWidth={0}
-            viewBox='0 0 320 512'
-            height='1em'
-            width='1em'
-            xmlns='http://www.w3.org/2000/svg'
-          >
-            <path d='M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z'></path>
-          </svg>
-        </div>
-        <div
-          className='scrollRight'
-          onMouseOver={scrollLeft}
-          onMouseOut={stopScroll}
-        >
-          <svg
-            stroke='currentColor'
-            fill='currentColor'
-            strokeWidth={0}
-            viewBox='0 0 320 512'
-            height='1em'
-            width='1em'
-            xmlns='http://www.w3.org/2000/svg'
-          >
-            <path d='M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z'></path>
-          </svg>
-        </div>
         <div className='cardsWrapper' id='scroller'>
           {serviceItem.map((item) => {
             return (
