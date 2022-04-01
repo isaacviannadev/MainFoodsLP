@@ -119,6 +119,10 @@ const SectionProducts = styled('section', {
     padding: '20px',
 
     '& h1': {
+      color: '$primary',
+    },
+
+    '& p': {
       color: '#fff',
     },
   },
@@ -156,6 +160,12 @@ const SectionProducts = styled('section', {
         width: '400px',
         objectFit: 'cover',
         borderRadius: '8px',
+      },
+    },
+
+    '& .productItem.web': {
+      '@bp2': {
+        display: 'none',
       },
     },
   },
@@ -233,7 +243,7 @@ const Products = () => {
               </div>
             );
           })}
-          <div className='productItem'></div>
+          <div className='productItem web'></div>
         </div>
 
         <div className='productNav'>

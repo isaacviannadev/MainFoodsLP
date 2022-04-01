@@ -15,6 +15,7 @@ const Overlay = styled(Dialog.Overlay, {
   display: 'grid',
   placeItems: 'center',
   overflowY: 'auto',
+  zIndex: '9998',
 });
 
 const Content = styled(Dialog.Content, {
@@ -28,6 +29,7 @@ const Content = styled(Dialog.Content, {
   padding: '30px',
   borderRadius: '9px',
   position: 'relative',
+  zIndex: '9999',
 
   '@bp2': {
     width: '100%',
