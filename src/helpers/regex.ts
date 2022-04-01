@@ -66,7 +66,7 @@ export function validateEmail(email: string) {
 
 // ========================= APENAS NUMEROS NO INPUT =======================
 
-export function onlyNumber(e) {
+export function onlyNumber(e: any) {
   let theEvent = e;
   let key = theEvent.keyCode || theEvent.which;
   key = String.fromCharCode(key);

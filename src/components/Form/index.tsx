@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { styled } from '../../../stitches.config';
 import {
   nomesIniciaisMaiusculas,
@@ -206,6 +206,7 @@ const Form = () => {
   const [email, setEmail] = useState('');
   const [telefone, setTelefone] = useState('');
   const [isChecked, setIsChecked] = useState(false);
+  const [isValid, setIsValid] = useState(false);
 
   //   Form validation state
   const [errors, setErrors] = useState({
@@ -215,9 +216,6 @@ const Form = () => {
   });
 
   const [buttonText, setButtonText] = useState('QUERO AS NOVIDADES');
-
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const [showFailureMessage, setShowFailureMessage] = useState(false);
 
   // Validation check method
   const handleValidation = () => {
@@ -238,40 +236,14 @@ const Form = () => {
     }
 
     setErrors({ ...tempErrors });
-    return isValid;
+    return setIsValid(isValid);
   };
 
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
-
-    let isValidForm = handleValidation();
-
-    if (isValidForm) {
-      setButtonText('Enviando...');
-      const res = await fetch('/api/sendgrid', {
-        body: JSON.stringify({
-          email: email,
-          fullname: nomesIniciaisMaiusculas(fullname),
-          telefone: telefone,
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        method: 'POST',
-      });
-
-      const { error } = await res.json();
-      if (error) {
-        setShowSuccessMessage(false);
-        setShowFailureMessage(true);
-        setButtonText('QUERO AS NOVIDADES');
-        return;
-      }
-      setShowSuccessMessage(true);
-      setShowFailureMessage(false);
-      setButtonText('QUERO AS NOVIDADES');
+  useEffect(() => {
+    if (fullname.length > 0 && email.length > 0 && telefone.length > 0) {
+      handleValidation();
     }
-  };
+  }, [fullname, email, telefone, isChecked]);
 
   return (
     <SectionForm id='contato'>
@@ -283,12 +255,27 @@ const Form = () => {
         </p>
       </div>
       <div className='form'>
-        <form onSubmit={handleSubmit}>
+        <form
+          method='POST'
+          action='https://formsubmit.co/isaacsvianna@gmail.com'
+          // action='https://formsubmit.co/contato@mainfoodsmarket.com.br'
+        >
           <div className='form-group'>
             <div className='imgLogo'>
               <Image src={logoMF} alt='logo' />
             </div>
             <div className='formInputs'>
+              <input
+                type='hidden'
+                name='_subject'
+                value='Novo Lead - MainFoods!'
+              ></input>
+              <input type='hidden' name='_template' value='table'></input>
+              <input
+                type='hidden'
+                name='_next'
+                value='http://localhost:3000'
+              ></input>
               <div className='inputGroup'>
                 <label htmlFor='fullname'>Nome</label>
                 <input
@@ -343,7 +330,7 @@ const Form = () => {
             </div>
 
             <div className='footerForm'>
-              <Button type='submit' disabled={!isChecked}>
+              <Button type='submit' disabled={!isChecked || !isValid}>
                 {buttonText}
               </Button>
               <div className='checkbox'>
