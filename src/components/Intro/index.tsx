@@ -6,8 +6,7 @@ const Section = styled('section', {
   minHeight: '600px',
   alignItems: 'center',
   justifyContent: 'center',
-  backgroundImage:
-    'url(https://img.freepik.com/fotos-gratis/mulher-morena-gosta-de-comprar-comida-no-supermercado_342744-1113.jpg?w=1380&t=st=1648645549~exp=1648646149~hmac=446daa5a0c14a5a5628ebc9dded08c7e58168ffbcfea0f9ceb55f5bf5853ea73)',
+  backgroundImage: 'url("/Images/introBg.jpg")',
   backgroundSize: '100%',
   backgroundRepeat: 'no-repeat',
   backgroundPosition: '50% 35%',
