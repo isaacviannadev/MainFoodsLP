@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { styled } from '../../../stitches.config';
 import {
-  nomesIniciaisMaiusculas,
   onlyNumber,
   telMask,
   validaCelular,
@@ -273,7 +272,7 @@ const Form = () => {
               <input
                 type='hidden'
                 name='_next'
-                value='http://localhost:3000'
+                value='https://mainfoods.vercel.app/'
               ></input>
               <div className='inputGroup'>
                 <label htmlFor='fullname'>Nome</label>
