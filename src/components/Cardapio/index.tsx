@@ -2,6 +2,10 @@
 import React from 'react';
 import { styled } from '../../../stitches.config';
 
+import Image from 'next/image';
+
+import prato from '../../assets/images/prato2.png';
+
 const SectionMenu = styled('section', {
   display: 'flex',
   flexDirection: 'column',
@@ -13,7 +17,7 @@ const SectionMenu = styled('section', {
   backgroundColor: '#f5f5f5',
   padding: '20px 0',
 
-  '& .imagem': {
+  '& img.imagem': {
     position: 'absolute',
     top: '-30px',
     left: '0px',
@@ -124,7 +128,9 @@ const Cardapio = () => {
         alt='legumes soltos'
       />
       <div className='cardAlmoco'>
-        <img className='prato' src='/images/prato2.png' alt='prato executivo' />
+        <div className='prato'>
+          <Image src={prato} alt='prato executivo' />
+        </div>
         <div className='content'>
           <h1>Almoço Executivo</h1>
           <p>
