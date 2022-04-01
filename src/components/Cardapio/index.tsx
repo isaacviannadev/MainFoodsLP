@@ -13,7 +13,7 @@ const SectionMenu = styled('section', {
   backgroundColor: '#f5f5f5',
   padding: '20px 0',
 
-  '& img.imagem': {
+  '& .imagem': {
     position: 'absolute',
     top: '-30px',
     left: '0px',
@@ -52,7 +52,7 @@ const SectionMenu = styled('section', {
       paddingLeft: '20px',
     },
 
-    '& img.prato': {
+    '& .prato': {
       position: 'absolute',
       top: '-30px',
       left: '-260px',
