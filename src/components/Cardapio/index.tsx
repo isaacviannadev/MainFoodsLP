@@ -5,6 +5,7 @@ import { styled } from '../../../stitches.config';
 import Image from 'next/image';
 
 import prato from '../../assets/images/prato2.png';
+import lateralExecutivo from '../../assets/images/lateralExecutivo.svg';
 
 const SectionMenu = styled('section', {
   display: 'flex',
@@ -17,16 +18,18 @@ const SectionMenu = styled('section', {
   backgroundColor: '#f5f5f5',
   padding: '20px 0',
 
-  '& img.imagem': {
+  '& .imagem': {
     position: 'absolute',
-    top: '-30px',
-    left: '0px',
-    width: 'auto',
-    height: '660px',
+    top: '-50px',
+    left: '-30px',
+    width: '100%',
+    height: '200px',
+    maxWidth: '320px',
 
     '@bp2': {
-      top: '-20px',
-      left: '-10px',
+      top: '-30px',
+      left: '-20px',
+      maxWidth: '280px',
     },
   },
 
@@ -66,7 +69,7 @@ const SectionMenu = styled('section', {
       '@bp2': {
         top: '10px',
         left: '-100px',
-        width: 'auto',
+        width: '300px',
         height: '300px',
       },
 
@@ -122,11 +125,9 @@ const Button = styled('a', {
 const Cardapio = () => {
   return (
     <SectionMenu id='cardapio'>
-      <img
-        className='imagem'
-        src='/images/lateralExecutivo.svg'
-        alt='legumes soltos'
-      />
+      <div className='imagem'>
+        <Image src={lateralExecutivo} alt='legumes soltos' />
+      </div>
       <div className='cardAlmoco'>
         <div className='prato'>
           <Image src={prato} alt='prato executivo' />
