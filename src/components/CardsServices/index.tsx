@@ -255,7 +255,6 @@ const Services = () => {
     }
   };
 
-  console.log(selectedService);
 
   return (
     <>

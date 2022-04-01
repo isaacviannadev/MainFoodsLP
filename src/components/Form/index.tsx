@@ -273,7 +273,6 @@ const Form = () => {
     }
   };
 
-  console.log(isChecked);
   return (
     <SectionForm id='contato'>
       <div className='sectionDescription'>
