@@ -42,7 +42,7 @@ const SectionMenu = styled('section', {
     textAlign: 'center',
     backgroundColor: '$primary',
     padding: '20px',
-    paddingLeft: '200px',
+    paddingLeft: '240px',
     position: 'relative',
 
     '& h1': {
@@ -61,10 +61,10 @@ const SectionMenu = styled('section', {
 
     '& .prato': {
       position: 'absolute',
-      top: '-30px',
-      left: '-260px',
-      width: '400px',
-      height: '400px',
+      top: '-80px',
+      left: '-280px',
+      width: '500px',
+      height: '500px',
 
       '@bp2': {
         top: '10px',
@@ -74,11 +74,12 @@ const SectionMenu = styled('section', {
       },
 
       '@bp1': {
-        top: '-130px',
-        left: 'calc(50% - 75px)',
+        top: '-135px',
+        left: '50%',
+        transform: 'translateX(-50%)',
 
-        width: '150px',
-        height: '150px',
+        width: '160px',
+        height: '160px',
       },
     },
     '& .content': {
