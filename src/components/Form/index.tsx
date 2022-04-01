@@ -257,8 +257,7 @@ const Form = () => {
       <div className='form'>
         <form
           method='POST'
-          action='https://formsubmit.co/isaacsvianna@gmail.com'
-          // action='https://formsubmit.co/contato@mainfoodsmarket.com.br'
+          action='https://formsubmit.co/contato@mainfoodsmarket.com.br'
         >
           <div className='form-group'>
             <div className='imgLogo'>
