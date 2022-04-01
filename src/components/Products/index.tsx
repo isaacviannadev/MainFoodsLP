@@ -155,7 +155,7 @@ const SectionProducts = styled('section', {
         height: '260px',
         width: '400px',
         objectFit: 'cover',
-        borderRadius: '6px',
+        borderRadius: '8px',
       },
     },
   },
@@ -222,7 +222,7 @@ const Products = () => {
                 key={item.id}
                 id={String(item.id)}
                 className='productItem'
-                style={{ borderRadius: '6px' }}
+                style={{ borderRadius: '8px' }}
               >
                 <Image
                   src={item.bgImage}
