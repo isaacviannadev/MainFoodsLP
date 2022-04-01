@@ -60,7 +60,7 @@ const SectionMenu = styled('section', {
       position: 'absolute',
       top: '-30px',
       left: '-260px',
-      width: 'auto',
+      width: '400px',
       height: '400px',
 
       '@bp2': {
