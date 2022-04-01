@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { styled } from '../../../stitches.config';
+import Image from 'next/image';
 
 const itens = [
   {
     id: 0,
     name: 'Qualidade',
-    bgImage: 'url("/images/main.png")',
+    bgImage: '/images/main.png',
     description: `Chegamos com a missão de trazer
 muito mais que um mercado, 
 trazemos pizzas, pratos executivos,
@@ -16,7 +17,7 @@ mais para você e sua família.
   {
     id: 1,
     name: 'Café da manhã',
-    bgImage: 'url("/images/cafemanha.png") ',
+    bgImage: '/images/cafemanha.png',
     description: `Temos um CAFÉ DA MANHÃ completo para você e sua família com muito sabor e variedade, são muitas opções com diversos 
 tipos de pães, sucos da fruta, laticínios, frios, bolos, ovos e muito mais!
   `,
@@ -24,67 +25,67 @@ tipos de pães, sucos da fruta, laticínios, frios, bolos, ovos e muito mais!
   {
     id: 2,
     name: 'Produtos Orgânicos',
-    bgImage: 'url("/images/organicos.png")',
+    bgImage: '/images/organicos.png',
     description: `Você pode contar com muitos produtos ORGÂNICOS para o seu dia a dia, temos uma área especial para você! `,
   },
   {
     id: 3,
     name: 'Cortes especiais',
-    bgImage: 'url("/images/acougue.png")',
+    bgImage: '/images/acougue.png',
     description: `Em nosso AÇOUGUE você vai encontrar cortes nobres e as melhores opções para o 
 seu dia a dia.`,
   },
   {
     id: 4,
     name: 'Peixe fresco',
-    bgImage: 'url("/images/peixe.png")',
+    bgImage: '/images/peixe.png',
     description: `PEIXE FRESCO todo dia! Uma seleção de frutos  do mar com camarão vg, salmão, polvo, lula, 
 variados tipos de peixe, tudo com opções já porcionadas pensando em você!`,
   },
   {
     id: 5,
     name: 'Hortifruti',
-    bgImage: 'url("/images/hortifruti.png")',
+    bgImage: '/images/hortifruti.png',
     description: `Aqui no nosso HORTIFRUTI você vai encontrar muita qualidade e variedade alem de opções já porcionadas para o seu dia a dia, podemos fazer do seu jeito combinando legumes e verduras à sua escolha.`,
   },
   {
     id: 6,
     name: 'Vegano',
-    bgImage: 'url("/images/vegano.png")',
+    bgImage: '/images/vegano.png',
     description: `Você pode se deliciar com nossas opções VEGANAS, temos lasanhas, pizza, risoto, gnocchi, bruchetta e muito mais.  `,
   },
   {
     id: 7,
     name: 'Pizza',
-    bgImage: 'url("/images/pizza.png")',
+    bgImage: '/images/pizza.png',
     description: `Nossas PIZZAS são produzidas aqui mesmo e com um processo de fermentação natural,
 são varios sabores aguardando você! `,
   },
   {
     id: 8,
     name: 'Mercearia',
-    bgImage: 'url("/images/mercearia.png")',
+    bgImage: '/images/mercearia.png',
     description:
       'Na nossa MERCEARIA você encontra s eus produtos favoritos e muitos outros para você se deliciar!',
   },
   {
     id: 9,
     name: 'Laticínios',
-    bgImage: 'url("/images/queijo.png")',
+    bgImage: '/images/queijo.png',
     description:
       'Em nosso setor de LATICÍNIOS temos uma variedade de produtos para completar e deixar ainda mais gostoso seu café da manhã, jantar especial ou o lanchinho das crianças!',
   },
   {
     id: 10,
     name: 'Adega',
-    bgImage: 'url("/images/adega.png")',
+    bgImage: '/images/adega.png',
     description:
       'Uma ADEGA completa com os melhores rótulos de vinho, além de licores e espumantes .',
   },
   {
     id: 11,
     name: 'Padaria',
-    bgImage: 'url("/images/padaria.png")',
+    bgImage: '/images/padaria.png',
     description:
       'Uma PADARIA completa com muita coisa gostosa, você pode contar com pães de fermentação natural, bombas de chocolate, pães doces, pão de queijo e muitas outras opções!',
   },
@@ -149,9 +150,13 @@ const SectionProducts = styled('section', {
       height: '260px',
       width: '400px',
       flex: 'none',
-      padding: '20px',
-      backgroundSize: '100%',
-      backgroundRepeat: 'no-repeat',
+
+      '& img': {
+        height: '260px',
+        width: '400px',
+        objectFit: 'cover',
+        borderRadius: '6px',
+      },
     },
   },
 
@@ -217,8 +222,15 @@ const Products = () => {
                 key={item.id}
                 id={String(item.id)}
                 className='productItem'
-                style={{ backgroundImage: item.bgImage, borderRadius: '6px' }}
-              ></div>
+                style={{ borderRadius: '6px' }}
+              >
+                <Image
+                  src={item.bgImage}
+                  alt={item.name}
+                  height='260px'
+                  width='400px'
+                />
+              </div>
             );
           })}
           <div className='productItem'></div>
@@ -230,7 +242,7 @@ const Products = () => {
               <div
                 className={`productNavItem ${card === item.id ? 'active' : ''}`}
                 key={item.id}
-                onClick={() => handleItem(item.id)}
+                onMouseOver={() => handleItem(item.id)}
               ></div>
             );
           })}
