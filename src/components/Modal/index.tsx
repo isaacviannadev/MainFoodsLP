@@ -4,6 +4,7 @@ import * as Dialog from '@radix-ui/react-dialog';
 import { styled } from '../../../stitches.config';
 
 import Map from '../CardsServices/map';
+import Spinner from '../Spinner';
 
 const Overlay = styled(Dialog.Overlay, {
   background: 'rgba(0 0 0 / 0.5)',
@@ -33,6 +34,7 @@ const Content = styled(Dialog.Content, {
 
   '@bp2': {
     width: '100%',
+    maxWidth: '460px',
   },
 
   '& .video-responsive iframe': {
@@ -41,7 +43,7 @@ const Content = styled(Dialog.Content, {
 
   '& img': {
     width: '100%',
-    height: '300px',
+    height: '280px',
     objectFit: 'cover',
     borderRadius: '9px 9px 0 0',
   },
@@ -112,8 +114,10 @@ const Modal: React.FC<ModalProps> = (props) => {
               </div>
             ) : embed && !video && !image ? (
               <Map />
-            ) : (
+            ) : !embed && !video && image ? (
               <img src={image} alt={title} />
+            ) : (
+              <Spinner />
             )}
             <Title>
               <h3>{title}</h3>

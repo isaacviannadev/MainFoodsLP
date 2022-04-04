@@ -174,9 +174,12 @@ const SectionProducts = styled('section', {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: '16px',
     width: '100%',
-    height: '20px',
+    height: '40px',
+
+    // '@bp1': {
+    //   display: 'none',
+    // },
 
     '& .productNavItem': {
       display: 'block',
@@ -186,6 +189,7 @@ const SectionProducts = styled('section', {
       borderRadius: '50%',
       cursor: 'pointer',
       transition: 'all 0.3s ease-in-out',
+      margin: '8px',
 
       '&:hover': {
         boxShadow: '0px 0px 10px #FF9900',
@@ -233,6 +237,7 @@ const Products = () => {
                 id={String(item.id)}
                 className='productItem'
                 style={{ borderRadius: '8px' }}
+                onClick={() => handleItem(item.id)}
               >
                 <Image
                   src={item.bgImage}
