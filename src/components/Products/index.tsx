@@ -155,6 +155,7 @@ const SectionProducts = styled('section', {
       height: '260px',
       width: '400px',
       flex: 'none',
+      cursor: 'pointer',
 
       '& img': {
         height: '260px',
