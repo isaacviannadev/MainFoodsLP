@@ -29,7 +29,6 @@ const Ul = styled('ul', {
     paddingTop: '3.5rem',
     transition: 'all 0.3s ease-in-out',
     zIndex: 98,
-    boxShadow: '-4px 0px 6px rgba(0, 0, 0, 0.25)',
 
     '&  li': {
       color: '#fff',
@@ -44,6 +43,7 @@ const Ul = styled('ul', {
 
     '&.opened': {
       transform: 'translateX(0)',
+      boxShadow: '-4px 0px 6px rgba(0, 0, 0, 0.25)',
     },
     '&.closed': {
       transform: 'translateX(100%)',

@@ -254,11 +254,8 @@ const Form = () => {
         sr().reveal('.sectionDescription', {
           delay: 500,
           reset: true,
-          distance: '50px',
-          origin: 'left',
-          duration: 1000,
         });
-        sr().reveal('.form', {
+        sr().reveal('.form-group', {
           delay: 500,
           reset: true,
           distance: '50px',
