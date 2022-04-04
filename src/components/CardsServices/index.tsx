@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { styled } from '../../../stitches.config';
 import Modal from '../Modal';
 
@@ -167,34 +167,6 @@ const Services = () => {
   const [open, setOpen] = useState(false);
   const [selectedService, setSelectedService] = useState<ServiceTypes>();
 
-  let scrolling: any = null;
-
-  function scrollRight() {
-    const d = document.getElementById('scroller');
-    if (d) {
-      d.scrollLeft = d.scrollLeft - 10;
-
-      scrolling = window.setTimeout(function () {
-        scrollRight();
-      }, 100);
-    }
-  }
-
-  function scrollLeft() {
-    const d = document.getElementById('scroller');
-    if (d) {
-      d.scrollLeft = d.scrollLeft + 10;
-
-      scrolling = window.setTimeout(function () {
-        scrollLeft();
-      }, 100);
-    }
-  }
-
-  function stopScroll() {
-    window.clearTimeout(scrolling);
-  }
-
   const openModal = (id: string) => {
     const selected = serviceItem.find((item) => item.id === id);
 
@@ -209,13 +181,32 @@ const Services = () => {
     }
   };
 
+  const refToComponentServ = React.useRef(null);
+
+  useEffect(() => {
+    async function animate() {
+      if (refToComponentServ.current) {
+        const sr = (await import('scrollreveal')).default;
+        sr().reveal(refToComponentServ.current, { delay: 200, reset: true });
+        sr().reveal('.cardsWrapper', {
+          delay: 500,
+          reset: true,
+          distance: '50px',
+          origin: 'bottom',
+          duration: 1000,
+        });
+      }
+    }
+    animate();
+  }, []);
+
   return (
     <>
-      <SectionServices id='services'>
+      <SectionServices id='services' ref={refToComponentServ}>
         <div className='cardsWrapper' id='scroller'>
           {serviceItem.map((item) => {
             return (
-              <CardService key={item.id}>
+              <CardService key={item.id} className='cardsServItem'>
                 <img src={item.icon} alt={item.title} />
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>

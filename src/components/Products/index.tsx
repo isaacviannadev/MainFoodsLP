@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { styled } from '../../../stitches.config';
 import Image from 'next/image';
+import React from 'react';
 
 const itens = [
   {
@@ -223,9 +224,27 @@ const Products = () => {
     setCard(id);
   };
 
+  const refToComponentProd = React.useRef(null);
+
+  useEffect(() => {
+    async function animate() {
+      if (refToComponentProd.current) {
+        const sr = (await import('scrollreveal')).default;
+        sr().reveal(refToComponentProd.current, { delay: 200, reset: true });
+        sr().reveal('.productsDescription', {
+          delay: 1000,
+          reset: true,
+          origin: 'right',
+          distance: '150%',
+        });
+      }
+    }
+    animate();
+  }, []);
+
   return (
     <>
-      <SectionProducts id='products'>
+      <SectionProducts id='products' ref={refToComponentProd}>
         <div className='productsDescription'>
           <>
             <h1>{itens[card].name}</h1>

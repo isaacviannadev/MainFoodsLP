@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import { styled } from '../../../stitches.config';
 
 const Section = styled('section', {
@@ -76,8 +77,36 @@ const CardIntro = styled('div', {
 });
 
 const Intro = () => {
+  const refToComponent = React.useRef(null);
+
+  useEffect(() => {
+    async function animate() {
+      if (refToComponent.current) {
+        const sr = (await import('scrollreveal')).default;
+        sr().reveal(refToComponent.current, { delay: 500, reset: true });
+        sr().reveal('.container', {
+          delay: 1000,
+          reset: true,
+          distance: '50px',
+        });
+        sr().reveal('.welcome', {
+          delay: 1000,
+          reset: true,
+          distance: '50px',
+          easing: 'ease-in-out',
+        });
+        sr().reveal('.description', {
+          delay: 1000,
+          reset: true,
+          distance: '50px',
+        });
+      }
+    }
+    animate();
+  }, []);
+
   return (
-    <Section id='intro'>
+    <Section id='intro' ref={refToComponent}>
       <div className='container'>
         <CardIntro>
           <p className='welcome'>Bem-vindo(a) ao Main Foods Market</p>

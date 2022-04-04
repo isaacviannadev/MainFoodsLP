@@ -244,8 +244,34 @@ const Form = () => {
     }
   }, [fullname, email, telefone, isChecked]);
 
+  const refToComponentForm = React.useRef(null);
+
+  useEffect(() => {
+    async function animate() {
+      if (refToComponentForm.current) {
+        const sr = (await import('scrollreveal')).default;
+        sr().reveal(refToComponentForm.current, { delay: 200, reset: true });
+        sr().reveal('.sectionDescription', {
+          delay: 500,
+          reset: true,
+          distance: '50px',
+          origin: 'left',
+          duration: 1000,
+        });
+        sr().reveal('.form', {
+          delay: 500,
+          reset: true,
+          distance: '50px',
+          origin: 'right',
+          duration: 1000,
+        });
+      }
+    }
+    animate();
+  }, []);
+
   return (
-    <SectionForm id='contato'>
+    <SectionForm id='contato' ref={refToComponentForm}>
       <div className='sectionDescription'>
         <h1>FIQUE POR DENTRO</h1>
         <p>
