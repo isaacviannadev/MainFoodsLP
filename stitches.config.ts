@@ -87,3 +87,5 @@ export const globalStyles = globalCss({
     textDecoration: 'none',
   },
 });
+
+globalStyles();
