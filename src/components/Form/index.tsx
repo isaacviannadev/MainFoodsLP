@@ -254,12 +254,14 @@ const Form = () => {
         sr().reveal('.sectionDescription', {
           delay: 500,
           reset: true,
+          origin: 'bottom',
+          distance: '30px',
         });
         sr().reveal('.form-group', {
           delay: 500,
           reset: true,
-          distance: '50px',
-          origin: 'right',
+          origin: 'top',
+          distance: '30px',
           duration: 1000,
         });
       }

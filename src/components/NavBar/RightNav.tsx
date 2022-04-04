@@ -47,6 +47,7 @@ const Ul = styled('ul', {
     },
     '&.closed': {
       transform: 'translateX(100%)',
+      display: 'none',
     },
   },
 });
