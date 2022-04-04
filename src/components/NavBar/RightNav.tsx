@@ -4,6 +4,7 @@ const Ul = styled('ul', {
   listStyle: 'none',
   display: 'flex',
   flexFlow: 'row nowrap',
+  boxShadow: '-4px 0px 6px rgba(0, 0, 0, 0.25)',
 
   '&  li': {
     color: '$primary',
