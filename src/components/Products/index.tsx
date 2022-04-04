@@ -137,6 +137,7 @@ const SectionProducts = styled('section', {
     marginTop: '140px',
     height: 'fit-content',
     overflowX: 'auto',
+
     '&::-webkit-scrollbar': {
       display: 'none',
     },
@@ -180,24 +181,26 @@ const SectionProducts = styled('section', {
     // '@bp1': {
     //   display: 'none',
     // },
-
-    '& .productNavItem': {
-      display: 'block',
-      backgroundColor: '#FF9900',
-      width: '10px',
-      height: '10px',
-      borderRadius: '50%',
+    '& div': {
       cursor: 'pointer',
-      transition: 'all 0.3s ease-in-out',
-      margin: '8px',
 
-      '&:hover': {
-        boxShadow: '0px 0px 10px #FF9900',
-      },
+      '& .productNavItem': {
+        display: 'block',
+        backgroundColor: '#FF9900',
+        width: '10px',
+        height: '10px',
+        borderRadius: '50%',
+        transition: 'all 0.3s ease-in-out',
+        margin: '8px',
 
-      '&.active': {
-        width: '16px',
-        height: '16px',
+        '&:hover': {
+          boxShadow: '0px 0px 10px #FF9900',
+        },
+
+        '&.active': {
+          width: '16px',
+          height: '16px',
+        },
       },
     },
   },
@@ -254,11 +257,13 @@ const Products = () => {
         <div className='productNav'>
           {itens.map((item) => {
             return (
-              <div
-                className={`productNavItem ${card === item.id ? 'active' : ''}`}
-                key={item.id}
-                onMouseOver={() => handleItem(item.id)}
-              ></div>
+              <div key={item.id} onClick={() => handleItem(item.id)}>
+                <div
+                  className={`productNavItem ${
+                    card === item.id ? 'active' : ''
+                  }`}
+                ></div>
+              </div>
             );
           })}
         </div>
