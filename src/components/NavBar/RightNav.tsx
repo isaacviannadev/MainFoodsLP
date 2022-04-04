@@ -52,23 +52,24 @@ const Ul = styled('ul', {
 
 type RightNavProps = {
   open: 'closed' | 'opened';
+  setOpen: (open: 'closed' | 'opened') => void;
 };
 
-const RightNav: React.FC<RightNavProps> = ({ open }) => {
+const RightNav: React.FC<RightNavProps> = ({ open, setOpen }) => {
   return (
     <Ul className={open}>
-      <a href='#products'>
+      <a href='#products' onClick={() => setOpen('closed')}>
         <li>Nossos Produtos</li>
       </a>
-      <a href='#cardapio'>
+      <a href='#cardapio' onClick={() => setOpen('closed')}>
         <li>Cardápio</li>
       </a>
 
-      <a href='#services'>
+      <a href='#services' onClick={() => setOpen('closed')}>
         <li>Nosso Diferencial</li>
       </a>
 
-      <a href='#contato'>
+      <a href='#contato' onClick={() => setOpen('closed')}>
         <li>Cadastre-se</li>
       </a>
     </Ul>
