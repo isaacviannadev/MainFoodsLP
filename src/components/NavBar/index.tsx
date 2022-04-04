@@ -55,7 +55,7 @@ const Navbar = () => {
         animateHeader
           ? { backgroundColor: '#fff' }
           : {
-              backgroundColor: 'rgba(255, 255, 255, 0.7)',
+              backgroundColor: 'rgba(255, 255, 255, 0.4)',
               backdropFilter: 'blur(5px)',
             }
       }
