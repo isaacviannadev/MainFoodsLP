@@ -220,11 +220,17 @@ const Products = () => {
         carousel.current.scrollLeft += 430 * (id - card);
       }
     }
-
-    setCard(id);
   };
 
   const refToComponentProd = React.useRef(null);
+
+  const handleScroll = (e: any) => {
+    const { scrollLeft, scrollWidth, clientWidth } = e.target;
+    const scrollPercent = (scrollLeft / (scrollWidth - clientWidth)) * 100;
+    const toCard = Math.round(scrollPercent / 10);
+
+    setCard(toCard);
+  };
 
   useEffect(() => {
     async function animate() {
@@ -238,6 +244,10 @@ const Products = () => {
           distance: '150%',
         });
       }
+    }
+
+    if (carousel.current) {
+      carousel.current.addEventListener('scroll', handleScroll);
     }
     animate();
   }, []);
