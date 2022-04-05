@@ -137,13 +137,13 @@ const SectionProducts = styled('section', {
     left: '40%',
     marginTop: '140px',
     height: 'fit-content',
+    padding: '0 40px',
     overflowX: 'auto',
+    scrollBehavior: 'smooth',
 
     '&::-webkit-scrollbar': {
       display: 'none',
     },
-    scrollBehavior: 'smooth',
-    padding: '0 40px',
 
     '@bp2': {
       width: '100%',
@@ -215,7 +215,9 @@ const Products = () => {
   const handleItem = (id: number) => {
     if (carousel.current) {
       if (id < card) {
-        carousel.current.scrollLeft -= 430 * (card - id);
+        if (id === 0) {
+          carousel.current.scrollLeft = 0;
+        } else carousel.current.scrollLeft -= 430 * (card - id);
       } else {
         carousel.current.scrollLeft += 430 * (id - card);
       }
@@ -227,7 +229,7 @@ const Products = () => {
   const handleScroll = (e: any) => {
     const { scrollLeft, scrollWidth, clientWidth } = e.target;
     const scrollPercent = (scrollLeft / (scrollWidth - clientWidth)) * 100;
-    const toCard = Math.round(scrollPercent / 10);
+    const toCard = Math.floor(scrollPercent / 9);
 
     setCard(toCard);
   };
@@ -250,6 +252,10 @@ const Products = () => {
       carousel.current.addEventListener('scroll', handleScroll);
     }
     animate();
+
+    return () => {
+      carousel?.current?.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (
