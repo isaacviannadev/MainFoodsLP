@@ -15,6 +15,15 @@ const SectionForm = styled('section', {
   height: '600px',
   flex: 'none',
   padding: '20px 0px 0px',
+  position: 'relative',
+
+  '& .greenBar': {
+    position: 'absolute',
+    width: '100%',
+    height: '50px',
+    backgroundColor: '$secondary',
+    bottom: '-10px',
+  },
 
   '& .sectionDescription': {
     display: 'flex',
@@ -171,6 +180,7 @@ const Form = () => {
           </div>
         </div>
       </div>
+      <div className='greenBar'></div>
     </SectionForm>
   );
 };
