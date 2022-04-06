@@ -1,15 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { styled } from '../../../stitches.config';
-import {
-  onlyNumber,
-  telMask,
-  validaCelular,
-  validateEmail,
-} from '../../helpers/regex';
-
-import logoMF from '../../assets/iconLogo.svg';
 import Image from 'next/image';
+
+import logoClub from '../../assets/clubmf.svg';
+import illustration from '../../assets/images/ilustration1.svg';
 
 const SectionForm = styled('section', {
   display: 'flex',
@@ -41,7 +36,7 @@ const SectionForm = styled('section', {
     '@bp2': {},
   },
 
-  '& .form': {
+  '& .register': {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -49,123 +44,49 @@ const SectionForm = styled('section', {
     width: '100%',
     height: 'fit-content',
     flex: 1,
-    backgroundImage:
-      'url("https://images.unsplash.com/photo-1506617564039-2f3b650b7010?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80")',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    backgroundPosition: 'bottom',
-    position: 'relative',
+    background:
+      ' linear-gradient(142deg, rgba(129,129,129,1) 0%, rgba(232,232,232,1) 50%, rgba(129,129,129,1) 100%)',
 
-    '& .form-group': {
+    '& .contentRegister': {
       display: 'flex',
-      position: 'absolute',
-      flexDirection: 'column',
-      justifyContent: 'space-around',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
       width: '100%',
-      maxWidth: '500px',
-      height: '460px',
-      top: '-20px',
-      left: '50%',
-      border: '1px solid #fff',
-      gap: '20px',
+      maxWidth: '1200px',
+      height: '100%',
       padding: '20px ',
-      backgroundColor: 'rgba(255, 255, 255, 0.25)',
-      backdropFilter: 'blur(5px)',
-      boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.3)',
-      borderRadius: '10px',
 
-      '& .imgLogo': {
-        position: 'absolute',
-        top: '15px',
-        right: '15px',
-        width: '60px',
-        color: '$primary',
-      },
-
-      '@bp2': {
-        maxWidth: '360px',
-        height: '440px',
-        top: '-20px',
-        transform: 'translateX(-50%)',
-      },
-
-      '& .formInputs': {
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-around',
-        width: '100%',
-        height: '100%',
-        padding: '20px 0',
-      },
-      '& .footerForm': {
+      '& .contentText': {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'flex-end',
-        width: '100%',
-        height: 'fit-content',
-        padding: '20px 0',
+        flex: '1',
+        gap: '20px',
 
-        '& .checkbox': {
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'center',
-          alignItems: 'center',
-          gap: '10px',
+        '& .clubLogo': {
           width: '100%',
-          height: 'fit-content',
-          padding: '10px 0',
+          maxWidth: '300px',
+          height: 'auto',
+        },
 
-          '& input': {
-            width: '15px',
-            height: '15px',
-          },
-          '& label': {
-            fontSize: '0.8rem',
-            color: '#fff',
-          },
+        '& p': {
+          width: '100%',
+          maxWidth: '220px',
+
+          color: '$primary',
         },
       },
-
-      '& .inputGroup': {
+      '& .contentImg': {
         display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
+        flexDirection: 'column',
+        justifyContent: 'flex-end',
         width: '100%',
-        height: 'fit-content',
-        justifyContent: 'space-between',
-        gap: '10px',
-        borderBottom: '2px solid #fff',
-        position: 'relative',
+        height: '100%',
+        maxHeight: '400px',
+        flex: '1',
 
-        '& label': {
-          width: '100px',
-          color: '#fff',
-          fontSize: '1.2rem',
-          fontWeight: 'bold',
-        },
-
-        '& input': {
-          width: '100%',
-          height: '40px',
-          backgroundColor: 'transparent',
-          border: 'none',
-          alignItems: 'flex-end',
-          color: '$yellow',
-          fontSize: '1.2rem',
-          fontWeight: 'bold',
-
-          '&::placeholder': {
-            color: 'rgba(255, 255, 255, 0.5)',
-          },
-        },
-        '& .error': {
-          color: '#de2121',
-          position: 'absolute',
-          left: '0',
-          bottom: '-18px',
-          fontSize: '0.8rem',
-          fontWeight: '500',
+        '@bp1': {
+          display: 'none',
         },
       },
     },
@@ -174,13 +95,12 @@ const SectionForm = styled('section', {
 
 const Button = styled('button', {
   display: 'flex',
-  alignSelf: 'center',
   alignItems: 'center',
   border: 'none',
   height: '40px',
   width: 'fit-content',
   padding: '0 30px',
-  background: '#FF9900',
+  background: '$primary',
   borderRadius: '20px',
 
   color: '#fff',
@@ -190,7 +110,7 @@ const Button = styled('button', {
   transition: 'all 0.3s ease',
 
   '&:hover:not(:disabled)': {
-    background: '#ffaa2a',
+    background: '$primaryLight',
     boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
   },
 
@@ -201,49 +121,6 @@ const Button = styled('button', {
 });
 
 const Form = () => {
-  const [fullname, setFullname] = useState('');
-  const [email, setEmail] = useState('');
-  const [telefone, setTelefone] = useState('');
-  const [isChecked, setIsChecked] = useState(false);
-  const [isValid, setIsValid] = useState(false);
-
-  //   Form validation state
-  const [errors, setErrors] = useState({
-    fullname: false,
-    email: false,
-    telefone: false,
-  });
-
-  const [buttonText, setButtonText] = useState('QUERO AS NOVIDADES');
-
-  // Validation check method
-  const handleValidation = () => {
-    let tempErrors = { fullname: false, email: false, telefone: false };
-    let isValid = true;
-
-    if (fullname.length <= 0) {
-      tempErrors['fullname'] = true;
-      isValid = false;
-    }
-    if (email.length <= 0 || validateEmail(email) === false) {
-      tempErrors['email'] = true;
-      isValid = false;
-    }
-    if (validaCelular(telefone) === false) {
-      tempErrors['telefone'] = true;
-      isValid = false;
-    }
-
-    setErrors({ ...tempErrors });
-    return setIsValid(isValid);
-  };
-
-  useEffect(() => {
-    if (fullname.length > 0 && email.length > 0 && telefone.length > 0) {
-      handleValidation();
-    }
-  }, [fullname, email, telefone, isChecked]);
-
   const refToComponentForm = React.useRef(null);
 
   useEffect(() => {
@@ -257,7 +134,7 @@ const Form = () => {
           origin: 'bottom',
           distance: '30px',
         });
-        sr().reveal('.form-group', {
+        sr().reveal('.register', {
           delay: 500,
           reset: true,
           origin: 'top',
@@ -278,99 +155,21 @@ const Form = () => {
           exclusivas, lançamentos de produtos, novos sabores e muito mais!
         </p>
       </div>
-      <div className='form'>
-        <form
-          method='POST'
-          action='https://formsubmit.co/contato@mainfoodsmarket.com.br'
-        >
-          <div className='form-group'>
-            <div className='imgLogo'>
-              <Image src={logoMF} alt='logo' />
-            </div>
-            <div className='formInputs'>
-              <input
-                type='hidden'
-                name='_subject'
-                value='Novo Lead - MainFoods!'
-              ></input>
-              <input type='hidden' name='_template' value='table'></input>
-              <input
-                type='hidden'
-                name='_next'
-                value='https://mainfoods.vercel.app/'
-              ></input>
-              <div className='inputGroup'>
-                <label htmlFor='fullname'>Nome</label>
-                <input
-                  type='text'
-                  name='fullname'
-                  id='fullname'
-                  value={fullname}
-                  onChange={(e) => {
-                    setFullname(e.target.value);
-                  }}
-                  placeholder='Digite seu nome'
-                />
-                {errors.fullname && (
-                  <span className='error'>Nome é obrigatório</span>
-                )}
-              </div>
-              <div className='inputGroup'>
-                <label htmlFor='email'>E-mail</label>
-                <input
-                  type='email'
-                  name='email'
-                  id='email'
-                  value={email}
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                  }}
-                  placeholder='Digite seu e-mail'
-                  inputMode='email'
-                />
-                {errors.email && (
-                  <span className='error'>E-mail é obrigatório</span>
-                )}
-              </div>
-
-              <div className='inputGroup'>
-                <label htmlFor='telefone'>Telefone</label>
-                <input
-                  type='text'
-                  name='telefone'
-                  id='telefone'
-                  value={telMask(telefone)}
-                  onChange={(e) => {
-                    setTelefone(e.target.value);
-                  }}
-                  onKeyPress={onlyNumber}
-                  maxLength={15}
-                  placeholder='Digite seu telefone'
-                  inputMode='numeric'
-                />
-                {errors.telefone && (
-                  <span className='error'>Telefone inválido</span>
-                )}
-              </div>
+      <div className='register'>
+        <div className='contentRegister'>
+          <div className='contentText'>
+            <div className='clubLogo'>
+              <Image src={logoClub} alt={'club logo'} />
             </div>
 
-            <div className='footerForm'>
-              <Button type='submit' disabled={!isChecked || !isValid}>
-                {buttonText}
-              </Button>
-              <div className='checkbox'>
-                <input
-                  type='checkbox'
-                  id='checkbox'
-                  onChange={() => setIsChecked(!isChecked)}
-                />
-                <label htmlFor='checkbox'>
-                  <span>Aceito receber comunicações da Main Foods</span>
-                </label>
-              </div>
-            </div>
+            <p>Um club de vantagens exclusivas para você.</p>
+            <p>Aproveite ofertas, descontos e benefícios exclusivos.</p>
+            <Button>CADASTRE-SE</Button>
           </div>
-        </form>
+          <div className='contentImg'>
+            <Image src={illustration} alt={'club logo illustration'} />
+          </div>
+        </div>
       </div>
     </SectionForm>
   );
