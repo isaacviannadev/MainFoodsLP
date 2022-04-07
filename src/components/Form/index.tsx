@@ -102,7 +102,7 @@ const SectionForm = styled('section', {
   },
 });
 
-const Button = styled('button', {
+const Button = styled('a', {
   display: 'flex',
   alignItems: 'center',
   border: 'none',
@@ -173,7 +173,12 @@ const Form = () => {
 
             <p>Um club de vantagens exclusivas para você.</p>
             <p>Aproveite ofertas, descontos e benefícios exclusivos.</p>
-            <Button>CADASTRE-SE</Button>
+            <Button
+              href='https://www.clubmainfoods.com.br'
+              rel='noopener noreferrer'
+            >
+              CADASTRE-SE
+            </Button>
           </div>
           <div className='contentImg'>
             <Image src={illustration} alt={'club logo illustration'} />
