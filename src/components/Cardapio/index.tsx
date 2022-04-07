@@ -132,25 +132,23 @@ const Cardapio = () => {
     async function animate() {
       if (refToComponentCard.current) {
         const sr = (await import('scrollreveal')).default;
-        sr().reveal(refToComponentCard.current, { delay: 200, reset: true });
+        sr().reveal(refToComponentCard.current, { delay: 200 });
         sr().reveal('.imagem', {
           delay: 500,
-          reset: true,
         });
         sr().reveal('.cardAlmoco', {
           delay: 500,
-          reset: true,
         });
         sr().reveal('.prato', {
           delay: 1000,
-          reset: true,
+
           origin: 'left',
           distance: '20px',
           duration: 1000,
         });
         sr().reveal('.content', {
           delay: 1000,
-          reset: true,
+
           origin: 'right',
           distance: '20px',
           duration: 1000,

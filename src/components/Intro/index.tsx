@@ -83,21 +83,21 @@ const Intro = () => {
     async function animate() {
       if (refToComponent.current) {
         const sr = (await import('scrollreveal')).default;
-        sr().reveal(refToComponent.current, { delay: 500, reset: true });
+        sr().reveal(refToComponent.current, { delay: 500 });
         sr().reveal('.container', {
           delay: 1000,
-          reset: true,
+
           distance: '50px',
         });
         sr().reveal('.welcome', {
           delay: 1000,
-          reset: true,
+
           distance: '50px',
           easing: 'ease-in-out',
         });
         sr().reveal('.description', {
           delay: 1000,
-          reset: true,
+
           distance: '50px',
         });
       }

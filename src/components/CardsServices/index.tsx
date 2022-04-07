@@ -187,10 +187,10 @@ const Services = () => {
     async function animate() {
       if (refToComponentServ.current) {
         const sr = (await import('scrollreveal')).default;
-        sr().reveal(refToComponentServ.current, { delay: 200, reset: true });
+        sr().reveal(refToComponentServ.current, { delay: 200 });
         sr().reveal('.cardsWrapper', {
           delay: 500,
-          reset: true,
+
           distance: '50px',
           origin: 'bottom',
           duration: 1000,

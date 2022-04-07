@@ -102,7 +102,7 @@ const SectionForm = styled('section', {
   },
 });
 
-const Button = styled('a', {
+const Button = styled('button', {
   display: 'flex',
   alignItems: 'center',
   border: 'none',
@@ -118,13 +118,18 @@ const Button = styled('a', {
   cursor: 'pointer',
   transition: 'all 0.3s ease',
 
+  '& a': {
+    textDecoration: 'none',
+    color: '#fff',
+  },
+
   '&:hover:not(:disabled)': {
     background: '$primaryLight',
     boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
   },
 
   '&:disabled': {
-    background: '#ccc',
+    background: '#777575',
     cursor: 'not-allowed',
   },
 });
@@ -136,16 +141,14 @@ const Form = () => {
     async function animate() {
       if (refToComponentForm.current) {
         const sr = (await import('scrollreveal')).default;
-        sr().reveal(refToComponentForm.current, { delay: 200, reset: true });
+        sr().reveal(refToComponentForm.current, { delay: 200 });
         sr().reveal('.sectionDescription', {
           delay: 500,
-          reset: true,
           origin: 'bottom',
           distance: '30px',
         });
         sr().reveal('.register', {
           delay: 500,
-          reset: true,
           origin: 'top',
           distance: '30px',
           duration: 1000,
@@ -174,10 +177,12 @@ const Form = () => {
             <p>Um club de vantagens exclusivas para você.</p>
             <p>Aproveite ofertas, descontos e benefícios exclusivos.</p>
             <Button
-              href='https://www.clubmainfoods.com.br'
-              rel='noopener noreferrer'
+              onClick={() =>
+                window.open('https://www.clubmainfoods.com.br', '_blank')
+              }
+              disabled
             >
-              CADASTRE-SE
+              EM BREVE
             </Button>
           </div>
           <div className='contentImg'>

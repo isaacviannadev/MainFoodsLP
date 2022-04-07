@@ -238,10 +238,10 @@ const Products = () => {
     async function animate() {
       if (refToComponentProd.current) {
         const sr = (await import('scrollreveal')).default;
-        sr().reveal(refToComponentProd.current, { delay: 200, reset: true });
+        sr().reveal(refToComponentProd.current, { delay: 200 });
         sr().reveal('.productsDescription', {
           delay: 1000,
-          reset: true,
+
           origin: 'right',
           distance: '150%',
         });
