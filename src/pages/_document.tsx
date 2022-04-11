@@ -15,18 +15,17 @@ export default class Document extends NextDocument {
           <meta
             name='description'
             content='Um novo conceito, o seu novo mercado!'
-          ></meta>
-          <meta name='description' content='Main Foods Market'></meta>
+          />
+          <meta name='description' content='Main Foods Market' />
           <meta
             name='description'
             content='Chegamos para proporcionar a melhor experiência. Faça suas compras! '
-          ></meta>
+          />
           <meta
             name='description'
             content='Mais conforto, os melhores produtos e o atendimento que você merece em um só lugar.'
-          ></meta>
-          <meta name='robots' content='noindex,nofollow'></meta>
-          <meta name='google' content='nositelinkssearchbox' />
+          />
+
           <style
             id='stitches'
             dangerouslySetInnerHTML={{ __html: getCssText() }}
