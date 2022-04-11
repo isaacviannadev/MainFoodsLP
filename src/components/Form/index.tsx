@@ -180,9 +180,8 @@ const Form = () => {
               onClick={() =>
                 window.open('https://www.clubmainfoods.com.br', '_blank')
               }
-              disabled
             >
-              EM BREVE
+              CADASTRE-SE
             </Button>
           </div>
           <div className='contentImg'>
