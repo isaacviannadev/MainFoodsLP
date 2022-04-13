@@ -178,7 +178,7 @@ const Form = () => {
             <p>Aproveite ofertas, descontos e benefícios exclusivos.</p>
             <Button
               onClick={() =>
-                window.open('https://www.clubmainfoods.com.br', '_blank')
+                window.open('http://www.clubmainfoods.com.br', '_blank')
               }
             >
               CADASTRE-SE
