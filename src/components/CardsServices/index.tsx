@@ -8,9 +8,7 @@ const serviceItem = [
     id: 'carona',
     icon: '/icons/carona.png',
     title: 'Carona Main',
-    text: `Aqui no main foods nós temos 
-o prazer te levar você até 
-seu veiculo! `,
+    text: `Aqui no Main Foods nós temos o prazer de levar você e suas compras até seu veículo!`,
     video: 'https://www.youtube.com/embed/xTv4_ddAqYg',
   },
   {
@@ -27,7 +25,7 @@ no melhor horário para você.`,
     icon: '/icons/location.png',
     title: 'Como chegar?',
     text: `Estamos localizados dentro do 
- Casa Shopping, Bloco P - Pav 0 `,
+ CasaShopping, Bloco P - Pav 0 `,
     embed: true,
   },
   {
